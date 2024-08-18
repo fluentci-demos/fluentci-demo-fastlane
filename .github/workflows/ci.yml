@@ -16,8 +16,12 @@ jobs:
           wasm: true
           pipeline: android
           args: setup
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Wasm Plugin
         run: |
           fluentci run --wasm bun install
-          fluentci run --wasm . android buildRelease
+          fluentci run --wasm fastlane android buildRelease
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
