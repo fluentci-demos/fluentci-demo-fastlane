@@ -1,0 +1,10 @@
+[[steps]]
+name = "Setup Android SDK"
+command = ["fluentci run --wasm android setup"]
+
+[[steps]]
+name = "Build"
+command = [
+  "fluentci run --wasm bun install",
+  "fluentci run --wasm fastlane android buildRelease",
+]
